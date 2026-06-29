@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   get "hello", to: "hello#index"
   get "users", to: "users#index"
   get "/users/:id", to: "users#show"
-  post "/users/:id", to: "users#create"
+  post "/users", to: "users#create"
   patch "/users/:id", to: "users#update"
-  delete "/users/:id", to: "users#destroy"
+  # delete "/users/:id", to: "users#destroy"
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
