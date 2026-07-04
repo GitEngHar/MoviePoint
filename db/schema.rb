@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_06_29_054426) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_30_113812) do
+  create_table "point_histories", force: :cascade do |t|
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.string "reason"
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_point_histories_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.integer "age"
     t.datetime "created_at", null: false
@@ -18,4 +27,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_06_29_054426) do
     t.datetime "updated_at", null: false
     t.string "user_id"
   end
+
+  add_foreign_key "point_histories", "users"
 end
